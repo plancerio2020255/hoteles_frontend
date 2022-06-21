@@ -3,14 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
-.forms_container {
-  margin-top: 30px;
-}
 .form__info {
   background-color: darkorange;
   width: 40vw;
   height: 75vh;
   border-radius: 15px 0 0 15px;
+  justify-content: center;
+  align-items: center;
 }
 
 .container__form-forms {
@@ -24,7 +23,7 @@
   display: block;
   text-align: center;
   font-family: 'Raleway', sans-serif;
-  margin-top: 95px;
+  justify-content: center;
 }
 
 .title__information-text {
@@ -37,15 +36,13 @@
 }
 
 .text-information {
-  padding: 50px;
   text-align: justify;
-  margin: 0 auto;
   width: 70%;
   height: 50%;
+  margin: 0 auto;
 }
 
 .container__information-forms {
-  margin: 70px 0 70px 0;
 }
 
 .form-control {
