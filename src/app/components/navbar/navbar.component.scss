@@ -8,13 +8,14 @@
 }
 
 .nav-link:hover {
-  background-color: rgb(192, 192, 192);
+  background-color: rgb(72, 72, 72);
   transition:linear 0.3s
 }
 
 .logo {
   font-family: 'Kaushan Script', cursive;
   font-size: 25px;
+  color: azure
 }
 
 .btn {
@@ -29,4 +30,8 @@
 
 .btn:hover {
   background-color: rgb(100, 119, 240);
+}
+
+.nav-link {
+  color: azure;
 }
