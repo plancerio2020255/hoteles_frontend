@@ -1,58 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
-
-.forms_container {
-  margin-top: 30px;
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
 }
-.form__info {
-  background-color: darkorange;
-  width: 40vw;
-  height: 75vh;
-  border-radius: 15px 0 0 15px;
+.h-custom {
+height: calc(100% - 73px);
 }
-
-.container__form-forms {
-  background-color: antiquewhite;
-  width: 25vw;
-  height: 75vh;
-  border-radius: 0 15px 15px 0;
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
 }
-
-.title__information {
-  display: block;
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  margin-top: 95px;
-}
-
-.title__information-text {
-  display: inline;
-  font-family: 'Poppins', sans-serif;
-}
-
-.text-company {
-  font-family: "Kaushan Script", cursive;
-}
-
-.text-information {
-  padding: 50px;
-  text-align: justify;
-  margin: 0 auto;
-  width: 70%;
-  height: 50%;
-}
-
-.container__information-forms {
-  margin: 70px 0 70px 0;
-}
-
-.form-control {
-  border-radius: 24px;
-  font-family: 'Quicksand', sans-serif;
-}
-
-.form-label {
-  font-family: 'Quicksand', sans-serif;
 }
