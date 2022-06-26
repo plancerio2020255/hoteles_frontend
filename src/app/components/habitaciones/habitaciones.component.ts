@@ -12,8 +12,18 @@ export class HabitacionesComponent implements OnInit {
 
   //Variable para almacenar todos los datos que obtenga de mi Get
   public habitacionModelGet: Habitaciones;
+  public habitacionModelPost: Habitaciones;
 
-  constructor(private _habitacionService: HabitacionService) { }
+  constructor(private _habitacionService: HabitacionService) {
+    this.habitacionModelPost = new Habitaciones(
+      '',
+      '',
+      '',
+      '',
+      '',
+      ''
+      );
+  }
 
   ngOnInit(): void {
     console.log('Hola Mundo');
@@ -25,6 +35,23 @@ export class HabitacionesComponent implements OnInit {
       (response) => {
         this.habitacionModelGet = response.habitaciones;
         console.log(this.habitacionModelGet);
+      },
+      (error) => {
+        console.log(<any>error);
+      }
+    )
+  }
+
+  postHabitaciones() {
+    this._habitacionService.agregarHabitacion(this.habitacionModelPost).subscribe(
+      (response) => {
+        console.log(response);
+        this.getHabitaciones();
+
+        this.habitacionModelPost.tipoHabitacion = '';
+        this.habitacionModelPost.numeroHabitacion = '';
+        this.habitacionModelPost.numeroPiso = '';
+        this.habitacionModelPost.precio = '';
       },
       (error) => {
         console.log(<any>error);

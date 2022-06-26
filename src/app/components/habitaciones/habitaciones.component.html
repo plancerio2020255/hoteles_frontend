@@ -10,8 +10,8 @@
     </div>
 
     <!-- Button Agregar Modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarHabitacion">
-      Agregar Habitación
+    <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agregarHabitacion">
+      Agregar una nueva Habitación
     </button>
 
     <div class="row gx-5">
@@ -23,7 +23,7 @@
                     <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{ hab.numeroHabitacion }}</div>
                     <h5 class="card-title mb-3">{{ hab.tipoHabitacion }}</h5>
                     <p class="card-text mb-0">
-                        El número de habitación es: {{ hab.numeroHabitacion }}. Su precio es de Q {{ hab.precio }}.00 por día, y se encuentra en el piso {{ hab.numeroPiso }}.
+                        El número de habitación es {{ hab.numeroHabitacion }}. Su precio es de Q {{ hab.precio }}.00 por día, y se encuentra en el piso {{ hab.numeroPiso }}.
                     </p>
                 </div>
                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
@@ -45,15 +45,34 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Habitacion</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+
+                <form>
+                    <div class="mg-3">
+                        <label for="inputTipoHabitacion" class="form-label">Tipo de Habitación</label>
+                        <input type="text" id="inputTipoHabitacion" class="form-control" name="tipoHabitacion" #tipo="ngModel" [(ngModel)]="habitacionModelPost.tipoHabitacion">
+                    </div>
+                    <div class="mg-3">
+                        <label for="inputNumHabitacion" class="form-label">Número de Habitación</label>
+                        <input type="text" id="inputNumHabitacion" class="form-control" name="numeroHabitacion" #numeroHabitacion="ngModel" [(ngModel)]="habitacionModelPost.numeroHabitacion">
+                    </div>
+                    <div class=" mg-3 ">
+                        <label for="inputNumPiso " class="form-label ">Número de Piso</label>
+                        <input type="text " id="inputNumPiso " class="form-control " name="numeroPiso" #numeroPiso="ngModel" [(ngModel)]="habitacionModelPost.numeroPiso">
+                    </div>
+                    <div class="mg-3 ">
+                        <label for="inputPrecio " class="form-label ">Precio</label>
+                        <input type="text " id="inputPrecio " class="form-control " name="precio" #precio="ngModel" [(ngModel)]="habitacionModelPost.precio">
+                    </div>
+                </form>
+
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="modal-footer ">
+                <button type="button " class="btn btn-secondary " data-bs-dismiss="modal">Cancelar</button>
+                <button type="button " class="btn btn-primary " data-bs-dismiss="modal" (click)="postHabitaciones()">Agregar</button>
             </div>
         </div>
     </div>
