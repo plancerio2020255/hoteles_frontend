@@ -3,7 +3,7 @@
     <div class="row gx-5 justify-content-center">
         <div class="col-lg-8 col-xl-6">
             <div class="text-center">
-                <h2 class="fw-bolder">Conoce a todos las habitaciones de Genrry XD</h2>
+                <h2 class="fw-bolder">Conoce a todas las habitaciones de Genrry XD</h2>
                 <p class="lead fw-normal text-muted mb-5">Mantente al día y conoce todas las habitaciones disponibles</p>
             </div>
         </div>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                     <div class="d-flex align-items-end justify-content-between">
-                        <button type="button" class="btn btn-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Editar</button>
+                        <button type="button" class="btn btn-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" (click)="getHabitacionId(hab._id)">Editar</button>
                         <button type="button" class="btn btn-danger" (click)="deleteHabitacion(hab._id)">Eliminar</button>
                         <button type="button" class="btn btn-success" [routerLink]=" ['/detalleHabitacion', hab._id]">Ver</button>
                     </div>
@@ -90,21 +90,21 @@
         <form>
             <div class="mb-3">
                 <label for="inputTipoHabitacion" class="form-label">Tipo de Habitación</label>
-                <input type="text" class="form-control" id="inputTipoHabitacion" name="tipoHabitacion" #tipo="ngModel" [(ngModel)]="habitacionModelPost.tipoHabitacion">
+                <input type="text" class="form-control" id="inputTipoHabitacion" name="tipoHabitacion" #tipo="ngModel" [(ngModel)]="habitacionModelGetId.tipoHabitacion">
             </div>
             <div class="mg-3">
                 <label for="inputNumHabitacion" class="form-label">Número de Habitación</label>
-                <input type="text" class="form-control" id="inputNumHabitacion" name="numeroHabitacion" #numeroHabitacion="ngModel" [(ngModel)]="habitacionModelPost.numeroHabitacion">
+                <input type="text" class="form-control" id="inputNumHabitacion" name="numeroHabitacion" #numeroHabitacion="ngModel" [(ngModel)]="habitacionModelGetId.numeroHabitacion">
             </div>
             <div class=" mg-3 ">
                 <label for="inputNumPiso " class="form-label ">Número de Piso</label>
-                <input type="text" class="form-control" id="inputNumPiso" name="numeroPiso" #numeroPiso="ngModel" [(ngModel)]="habitacionModelPost.numeroPiso">
+                <input type="text" class="form-control" id="inputNumPiso" name="numeroPiso" #numeroPiso="ngModel" [(ngModel)]="habitacionModelGetId.numeroPiso">
             </div>
             <div class="mg-3 ">
                 <label for="inputPrecio" class="form-label ">Precio</label>
-                <input type="text" class="form-control" id="inputPrecio" name="precio" #precio="ngModel" [(ngModel)]="habitacionModelPost.precio">
+                <input type="text" class="form-control" id="inputPrecio" name="precio" #precio="ngModel" [(ngModel)]="habitacionModelGetId.precio">
             </div>
-            <button type="submit" class="btn btn-success">Editar</button>
+            <button type="submit" class="btn btn-success" (click)="putHabitacion()" data-bs-dismiss="offcanvas">Guardar Cambios</button>
         </form>
     </div>
 </div>

@@ -30,6 +30,13 @@ export class HabitacionService {
   }
 
 
+  editarHabitacion(modeloHabitacion: Habitaciones): Observable<any> {
+    let parametro = JSON.stringify(modeloHabitacion);
+
+    return this._http.put(this.url + '/editarHabitacion/' + modeloHabitacion._id, parametro, { headers: this.headersVariable})
+  }
+
+
   eliminarHabitacion(idHabitacion): Observable<any> {
     return this._http.delete(this.url + '/eliminarHabitacion/' + idHabitacion, { headers: this.headersVariable});
   }

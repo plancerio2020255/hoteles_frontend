@@ -13,7 +13,7 @@ export class HabitacionesComponent implements OnInit {
   //Variable para almacenar todos los datos que obtenga de mi Get
   public habitacionModelGet: Habitaciones;
   public habitacionModelPost: Habitaciones;
-  public habitacionModelPut: Habitaciones;
+  public habitacionModelGetId: Habitaciones;
 
   constructor(private _habitacionService: HabitacionService) {
     this.habitacionModelPost = new Habitaciones(
@@ -24,6 +24,8 @@ export class HabitacionesComponent implements OnInit {
       '',
       ''
       );
+
+      this.habitacionModelGetId = new Habitaciones('', '', '', '', '', '');
   }
 
   ngOnInit(): void {
@@ -72,9 +74,30 @@ export class HabitacionesComponent implements OnInit {
     )
   }
 
+  //Funcion para editar Habitaciones
+  getHabitacionId(idHabitacion){
+    this._habitacionService.obtenerHabitacionId(idHabitacion).subscribe(
+      (response) => {
+        console.log(response);
+        this.habitacionModelGetId = response.habitacion;
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
 
-  getProductosId(idHabitacion){
-    this._habitacionService
+
+  putHabitacion() {
+    this._habitacionService.editarHabitacion(this.habitacionModelGetId).subscribe(
+      (response) => {
+        console.log(response);
+        this.getHabitaciones();
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 
 }
