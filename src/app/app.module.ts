@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { HabitacionesComponent } from './components/habitaciones/habitaciones.component';
+import { DetalleHabitacionComponent } from './components/detalle-habitacion/detalle-habitacion.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HabitacionesComponent } from './components/habitaciones/habitaciones.co
     SignUpComponent,
     HomeComponent,
     HotelesComponent,
-    HabitacionesComponent
+    HabitacionesComponent,
+    DetalleHabitacionComponent
   ],
 
   imports: [

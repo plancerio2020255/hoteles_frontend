@@ -17,6 +17,10 @@ export class HabitacionService {
     return this._http.get(this.url + '/verHabitaciones', { headers: this.headersVariable });
   }
 
+  obtenerHabitacionId(idHabitacion): Observable<any> {
+    return this._http.get(this.url + '/habitacion/' + idHabitacion, { headers: this.headersVariable });
+  }
+
 
   agregarHabitacion(modeloHabitacion: Habitaciones): Observable<any> {
 

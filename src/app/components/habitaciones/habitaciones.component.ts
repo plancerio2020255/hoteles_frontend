@@ -13,6 +13,7 @@ export class HabitacionesComponent implements OnInit {
   //Variable para almacenar todos los datos que obtenga de mi Get
   public habitacionModelGet: Habitaciones;
   public habitacionModelPost: Habitaciones;
+  public habitacionModelPut: Habitaciones;
 
   constructor(private _habitacionService: HabitacionService) {
     this.habitacionModelPost = new Habitaciones(
@@ -69,6 +70,11 @@ export class HabitacionesComponent implements OnInit {
         console.log(<any>error);
       }
     )
+  }
+
+
+  getProductosId(idHabitacion){
+    this._habitacionService
   }
 
 }
