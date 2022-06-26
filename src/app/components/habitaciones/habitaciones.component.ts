@@ -23,8 +23,8 @@ export class HabitacionesComponent implements OnInit {
   getHabitaciones() {
     this._habitacionService.obtenerHabitaciones().subscribe(
       (response) => {
-        console.log(response);
-
+        this.habitacionModelGet = response.habitaciones;
+        console.log(this.habitacionModelGet);
       },
       (error) => {
         console.log(<any>error);
