@@ -59,4 +59,16 @@ export class HabitacionesComponent implements OnInit {
     )
   }
 
+  deleteHabitacion(id) {
+    this._habitacionService.eliminarHabitacion(id).subscribe(
+      (response) => {
+        console.log(response);
+        this.getHabitaciones();
+      },
+      (error) => {
+        console.log(<any>error);
+      }
+    )
+  }
+
 }

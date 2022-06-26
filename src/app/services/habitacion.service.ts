@@ -25,4 +25,9 @@ export class HabitacionService {
     return this._http.post(this.url + '/agregarHabitacion', parametros, { headers: this.headersVariable});
   }
 
+
+  eliminarHabitacion(idHabitacion): Observable<any> {
+    return this._http.delete(this.url + '/eliminarHabitacion/' + idHabitacion, { headers: this.headersVariable});
+  }
+
 }
