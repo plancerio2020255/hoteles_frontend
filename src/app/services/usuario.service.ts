@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from '../models/usuario.model';
+import { Hotel } from '../models/hotel.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,10 @@ export class UsuarioService {
     'Content-Type',
     'application/json'
   );
+  public headersToken = new HttpHeaders({
+    'Content-Type': 'application/json',
+    Authorization: this.getToken(),
+  });
   public token;
   public identidad;
 
@@ -55,5 +60,22 @@ export class UsuarioService {
     return this._http.post(this.url + '/registrarUsuario', parametros, {
       headers: this.headersVariable,
     });
+  }
+
+  obtenerHoteles(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/verHoteles', {
+      headers: this.headersVariable,
+    });
+  }
+  obtenerHotelesId(idEmpresa, token) {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/verHotelesId' + idEmpresa, {
+      headers: headersToken,
+    });
+  }
+
+  cerrarSesion() {
+    localStorage.clear();
   }
 }
