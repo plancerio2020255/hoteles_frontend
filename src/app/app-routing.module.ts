@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'hoteles', component: HotelesComponent },
   { path: 'habitaciones', component: HabitacionesComponent},
   { path: 'detalleHabitacion/:idHabitacion', component: DetalleHabitacionComponent}
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
