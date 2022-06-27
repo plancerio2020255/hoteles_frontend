@@ -56,4 +56,8 @@ export class UsuarioService {
       headers: this.headersVariable,
     });
   }
+
+  cerrarSesion() {
+    localStorage.clear();
+  }
 }
