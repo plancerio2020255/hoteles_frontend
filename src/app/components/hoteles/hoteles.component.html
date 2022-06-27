@@ -7,6 +7,11 @@
       </div>
     </div>
   </div>
+  <div class="mb-3">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <h6 class="text-center">Agregar hotel</h6>
+    </button>
+  </div>
   <div class="row gx-5">
     <div class="col-lg-4 mb-5" *ngFor="let hot of hotelesModelGet">
       <div class="card h-100 shadow border-0">
@@ -19,11 +24,86 @@
         </div>
         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
           <div class="d-flex align-items-end justify-content-between">
-            <div class="d-grid"><a class="btn btn-outline-primary" href="home">Habitaciones</a></div>
-            <div class="d-grid"><a class="btn btn-outline-primary" href="home">Eventos</a></div>
+            <div class="d-grid"><a class="btn btn-outline-info" data-bs-toggle="offcanvas"
+                aria-controls="offcanvasExample" data-bs-target="#offcanvasExample"
+                (click)="getHotelesId(hot._id)">Editar</a></div>
+            <div class="d-grid"><a class="btn btn-outline-danger" (click)="deleteHotel(hot._id)">Eliminar</a></div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Modal Agregar -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Registrar un nuevo hotel</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre del hotel</label>
+            <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" name="nombre"
+              #nombre="ngModel" [(ngModel)]="hotelesModelPost.nombre">
+            <div id="nameHelp" class="form-text">Ingrese el nombre del hotel</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Direccion del hotel</label>
+            <input type="text" class="form-control" id="exampleInputAddress" aria-describedby="addresHelp"
+              name="direccion" #direccion="ngModel" [(ngModel)]="hotelesModelPost.direccion">
+            <div id="addresHelp" class="form-text">Ingrese la direccion del hotel</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Ingrese el número de teléfono</label>
+            <input type="text" class="form-control" id="exampleInputPhone" aria-describedby="phoneHelp" name="telefono"
+              #telefono="ngModel" [(ngModel)]="hotelesModelPost.telefono">
+            <div id="phoneHelp" class="form-text">Ingrese el número de teléfono del hotel</div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success" (click)="postHoteles()" data-bs-dismiss="modal">Guardar
+          cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal editar -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Editar hotel</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Nombre del hotel</label>
+        <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" name="nombre"
+          #nombre="ngModel" [(ngModel)]="hotelesModelGetId.nombre">
+        <div id="nameHelp" class="form-text">Ingrese el nombre del hotel</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Direccion del hotel</label>
+        <input type="text" class="form-control" id="exampleInputAddress" aria-describedby="addresHelp" name="direccion"
+          #direccion="ngModel" [(ngModel)]="hotelesModelGetId.direccion">
+        <div id="addresHelp" class="form-text">Ingrese la direccion del hotel</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Ingrese el número de teléfono</label>
+        <input type="text" class="form-control" id="exampleInputPhone" aria-describedby="phoneHelp" name="telefono"
+          #telefono="ngModel" [(ngModel)]="hotelesModelGetId.telefono">
+        <div id="phoneHelp" class="form-text">Ingrese el número de teléfono del hotel</div>
+      </div>
+      <div class="d-flex align-items-end justify-content-around">
+        <div class="d-grid"><a class="btn btn-outline-info" (click)="putHoteles()">Confirmar cambios</a></div>
+        <div class="d-grid"><a class="btn btn-outline-danger" data-bs-dismiss="offcanvas">Cancelar</a></div>
+      </div>
+    </form>
   </div>
 </div>
